@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>أكاديمية دَرْب – منصة دورات</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f5f3;--surface:#fff;--ink:#12302b;--mute:#5d726d;--line:#d9e2de;--brand:#0f5c4d;--brand-ink:#fff;--gold:#e3a008;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1816;--surface:#16231f;--ink:#e8f1ee;--mute:#9bb0aa;--line:#26372f;--brand:#3fbf9f;--brand-ink:#06201a;--gold:#f0b429}}
+:root[data-theme="dark"]{--bg:#0e1816;--surface:#16231f;--ink:#e8f1ee;--mute:#9bb0aa;--line:#26372f;--brand:#3fbf9f;--brand-ink:#06201a;--gold:#f0b429}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Cairo,Tahoma,sans-serif;line-height:1.7}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+header{background:var(--brand);color:var(--brand-ink);padding:14px 18px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.logo{font-weight:800;font-size:1.4rem;margin:0;cursor:pointer}
+.search{flex:1;min-width:180px;padding:10px 14px;border-radius:10px;border:0;font:inherit;background:var(--surface);color:var(--ink)}
+.nav button{background:transparent;color:inherit;border:1px solid currentColor;border-radius:10px;padding:8px 14px}
+main{max-width:1050px;margin:0 auto;padding:18px}
+.hero{padding:22px 0 8px}
+.hero h2{font-size:1.8rem;margin:0 0 4px;font-weight:800}
+.hero p{margin:0;color:var(--mute)}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:14px 0}
+.chip{white-space:nowrap;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:6px 16px;border-radius:99px}
+.chip[aria-pressed="true"]{background:var(--brand);color:var(--brand-ink);border-color:var(--brand)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;text-align:right;padding:0;color:var(--ink);display:flex;flex-direction:column}
+.thumb{height:120px;display:grid;place-items:center;font-size:3rem}
+.cb{padding:12px 14px 14px}
+.cb h3{font-size:1rem;margin:0 0 2px;font-weight:600}
+.meta{color:var(--mute);font-size:.85rem}
+.rate{color:var(--gold);font-weight:600}
+.price{font-weight:800;margin-top:6px}
+.bar{height:6px;background:var(--line);border-radius:9px;margin-top:8px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--brand)}
+.back{background:none;border:0;color:var(--brand);padding:0 0 10px;font-weight:600}
+.detail{display:grid;grid-template-columns:1fr;gap:18px}
+@media(min-width:800px){.detail{grid-template-columns:1.6fr 1fr}}
+.player{border-radius:12px;min-height:220px;display:grid;place-items:center;text-align:center;padding:20px;color:#fff;background:linear-gradient(135deg,#0f5c4d,#173a52)}
+.player h3{margin:6px 0}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px}
+.lesson{display:flex;gap:10px;align-items:center;width:100%;text-align:right;background:none;border:0;border-bottom:1px solid var(--line);padding:10px 4px;color:var(--ink)}
+.lesson:last-child{border:0}
+.lesson[aria-current="true"]{font-weight:800;color:var(--brand)}
+.tick{width:22px;height:22px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font-size:.75rem;flex:none}
+.done .tick{background:var(--brand);border-color:var(--brand);color:var(--brand-ink)}
+.btn{background:var(--brand);color:var(--brand-ink);border:0;border-radius:10px;padding:10px 18px;font-weight:600;margin:10px 8px 0 0}
+.btn.alt{background:transparent;color:var(--brand);border:1px solid var(--brand)}
+.empty{padding:40px 10px;text-align:center;color:var(--mute)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;box-shadow:0 2px 14px rgba(0,0,0,.2);padding:12px 20px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--brand);z-index:30}
+.search{border-radius:99px;padding:10px 18px}
+.nav{display:flex;gap:8px}
+.nav button{border-radius:99px;font-weight:600;transition:background .2s}
+.nav button:hover{background:rgba(255,255,255,.16)}
+main{padding:20px 18px 40px}
+.banner{border-radius:22px;padding:36px 28px;color:#fff;margin-top:6px;background:radial-gradient(circle at 12% 18%,rgba(227,160,8,.28) 0,transparent 42%),linear-gradient(135deg,#0b3d33,#0f5c4d 55%,#173a52)}
+.banner h2{font-size:clamp(1.6rem,5vw,2.5rem);margin:0 0 8px;font-weight:800;line-height:1.35}
+.banner p{margin:0 0 20px;opacity:.9;max-width:520px}
+.stats{display:flex;gap:28px;flex-wrap:wrap}
+.stats b{display:block;font-size:1.5rem;color:#f0b429}
+.stats span{font-size:.85rem;opacity:.85}
+.chip{font-weight:600;transition:background .2s}
+.card{border-radius:16px;box-shadow:0 1px 3px rgba(0,0,0,.07);transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-4px);box-shadow:0 14px 28px rgba(0,0,0,.16)}
+.thumb{height:132px;position:relative;font-size:3.3rem}
+.badge{position:absolute;top:10px;right:10px;background:var(--gold);color:#2b1d00;font-size:.72rem;font-weight:800;padding:2px 10px;border-radius:99px}
+.cb h3{line-height:1.5;min-height:3em}
+.player{border-radius:18px;min-height:270px;box-shadow:0 12px 30px rgba(0,0,0,.2)}
+.panel{border-radius:16px;box-shadow:0 1px 3px rgba(0,0,0,.07)}
+.btn{border-radius:99px;padding:11px 24px}
+footer{text-align:center;color:var(--mute);font-size:.85rem;padding:26px 16px}
+.thumb::before{content:"";position:absolute;inset:0;background:radial-gradient(rgba(255,255,255,.2) 1.5px,transparent 1.6px) 0 0/16px 16px}
+.thumb.ph::before{display:none}
+.ic{position:relative;width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,.22);display:grid;place-items:center;font-size:2.3rem;box-shadow:0 6px 18px rgba(0,0,0,.18)}
+.banner{position:relative;overflow:hidden;padding:50px 30px}
+.banner::after{content:"";position:absolute;left:-60px;bottom:-90px;width:270px;height:270px;border-radius:50%;background:rgba(255,255,255,.07)}
+.banner::before{content:"";position:absolute;left:100px;top:-70px;width:150px;height:150px;border-radius:50%;border:26px solid rgba(227,160,8,.2)}
+.banner>*{position:relative;z-index:1}
+.kick{display:inline-block;background:rgba(255,255,255,.14);padding:2px 14px;border-radius:99px;font-size:.85rem;margin-bottom:12px}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px}
+.sec{margin:36px 0 12px}.sec h2{font-size:1.4rem;margin:0 0 2px}.sec p{margin:0;color:var(--mute)}
+.pcard .thumb{height:150px}
+.pdf{display:inline-block;text-decoration:none;margin:12px 0 0}
+@media (prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}}
+</style>
+</head>
+<body>
+<header>
+  <h1 class="logo" id="home" tabindex="0"><span style="display:inline-flex;align-items:center;gap:10px"><svg width="36" height="36" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#e3a008"/><path d="M8 29c6 0 6-9 12-9s5 9 12 9" fill="none" stroke="#0f3d34" stroke-width="3.2" stroke-linecap="round"/><circle cx="31" cy="12" r="3.4" fill="#0f3d34"/></svg>أكاديمية دَرْب</span></h1>
+  <input class="search" id="q" type="search" placeholder="ابحث عن دورة أو مدرّب" aria-label="بحث">
+  <nav class="nav"><button id="addp" hidden>+ منتج رقمي</button> <button id="add" hidden>+ أضف دورة</button> <button id="mine">تعلّمي</button></nav>
+</header>
+<main id="app"></main>
+<footer>أكاديمية دَرْب – تعلّم بالعربية في أي وقت</footer>
+<script>
+var COURSES=[
+{id:1,t:"أساسيات البرمجة بلغة بايثون",i:"م. سارة العتيبي",c:"برمجة",e:"🐍",g:"#2b7a78,#3aafa9",r:4.8,n:1240,p:49,l:["مقدمة وتثبيت البيئة","المتغيرات وأنواع البيانات","الشروط والحلقات","الدوال","مشروع تطبيقي"]},
+{id:2,t:"تطوير مواقع الويب من الصفر",i:"أ. خالد الشمري",c:"برمجة",e:"💻",g:"#1c4e80,#3f88c5",r:4.7,n:980,p:59,l:["HTML الهيكل","CSS التنسيق","JavaScript الأساسيات","تصميم متجاوب","نشر الموقع"]},
+{id:3,t:"التجارة الإلكترونية وبناء متجرك على شوبيفاي",i:"أ. نورة القحطاني",c:"أعمال",e:"🛒",g:"#9a5b13,#e3a008",r:4.9,n:2100,p:39,l:["اختيار المنتج","إنشاء المتجر","تصميم الصفحات","الدفع والشحن","التسويق والمبيعات"]},
+{id:4,t:"الكتابة الإعلانية (كوبي رايتنج) باحتراف",i:"أ. ماجد الدوسري",c:"تسويق",e:"✍️",g:"#7b2d5e,#c05c9b",r:4.8,n:760,p:29,l:["فهم الجمهور","صياغة العناوين","كتابة الوصف التسويقي","عبارات الدعوة لاتخاذ إجراء","مراجعة وتدقيق النص"]},
+{id:5,t:"مدخل إلى العملات الرقمية وإدارة المخاطر",i:"أ. فيصل الحربي",c:"أعمال",e:"🪙",g:"#5a4a0a,#c9a227",r:4.5,n:1530,p:45,l:["ما هي البلوك تشين","المحافظ والأمان","قراءة السوق","إدارة رأس المال","أخطاء المبتدئين"]},
+{id:6,t:"تصميم الشعارات والهوية البصرية",i:"م. ريم الزهراني",c:"تصميم",e:"🎨",g:"#b23a48,#fc7a57",r:4.6,n:890,p:35,l:["مبادئ التصميم","الألوان والخطوط","رسم الشعار","تجهيز ملفات التسليم"]},
+{id:7,t:"مهارات الذكاء الاصطناعي للعمل اليومي",i:"د. عبدالله المالكي",c:"ذكاء اصطناعي",e:"🤖",g:"#22406e,#6c63ff",r:4.9,n:3200,p:0,l:["ما الذكاء الاصطناعي","كتابة الأوامر بفعالية","أتمتة المهام","التحقق من المخرجات","مشروع ختامي"]},
+{id:8,t:"تجويد القرآن الكريم للمبتدئين",i:"الشيخ أحمد المكي",c:"علوم شرعية",e:"📖",g:"#0b5d3b,#52b788",r:5.0,n:4100,p:0,l:["مخارج الحروف","أحكام النون الساكنة","أحكام المد","تطبيق عملي وتلاوة"]},
+{id:9,t:"إدارة الوقت والإنتاجية",i:"فريق أكاديمية دَرْب",c:"تطوير الذات",e:"⏱️",g:"#1c4e80,#3f88c5",r:0,n:0,p:0,l:["ابدأ بما يهم فعلاً","خطّة اليوم في عشر دقائق","اعمل بتركيز","راجع وطوّر عادتك"],x:["ليست كل المهام متساوية. اكتب كل ما عليك، ثم اختر مهمة أو مهمتين يصنعان أكبر فرق في أهدافك، وابدأ بهما قبل أي شيء آخر. المهام العاجلة لا تعني دائمًا أنها مهمة.","في آخر المساء أو أول الصباح، اكتب ثلاث مهام رئيسية لليوم وقدّر وقت كل واحدة. اترك فراغًا في جدولك للطوارئ، فالجدول الممتلئ تمامًا ينهار عند أول مقاطعة.","اعمل على مهمة واحدة لمدة خمسٍ وعشرين دقيقة مع إغلاق الإشعارات، ثم استرح خمس دقائق. كرّر هذه الدورة عدة مرات، وستلاحظ أن إنجازك يزيد دون إرهاق.","في نهاية الأسبوع اسأل نفسك: ماذا أنجزت؟ وما الذي أضاع وقتي؟ اختر عادة واحدة تحسّنها الأسبوع القادم بدل تغيير كل شيء دفعة واحدة."]},
+{id:10,t:"أساسيات التجارة الإلكترونية",i:"فريق أكاديمية دَرْب",c:"أعمال",e:"🛍️",g:"#9a5b13,#e3a008",r:0,n:0,p:0,l:["كيف تختار منتجًا مناسبًا","جهّز متجرك وصفحات المنتجات","الدفع والشحن وخدمة العملاء","اجذب أول عملائك"],x:["ابحث عن منتج يحتاجه الناس فعلاً، ويمكنك توفيره بجودة جيدة وهامش ربح معقول بعد حساب التكلفة والشحن. جرّب الفكرة بكمية صغيرة قبل أن تستثمر مبلغًا كبيرًا.","اكتب لكل منتج عنوانًا واضحًا ووصفًا يجيب عن أسئلة العميل، وأضف صورًا جيدة. اجعل خطوات الشراء قصيرة، وأظهر سياسة الإرجاع والتواصل بوضوح لتكسب الثقة.","وفّر طرق دفع موثوقة يعرفها عملاؤك، واتفق مع شركة شحن واضحة في الأسعار ومدة التوصيل. ردّ على الاستفسارات بسرعة، فسرعة الرد تؤثر في قرار الشراء.","ابدأ بأسلوب واحد تتقنه: محتوى قصير على وسائل التواصل، أو إعلانات بميزانية صغيرة، أو توصية العملاء الأوائل. قِس النتائج، وكرّر ما ينجح وأوقف ما لا يعطي نتيجة."]},
+{id:11,t:"التواصل الفعّال والإقناع",i:"فريق أكاديمية دَرْب",c:"تطوير الذات",e:"🗣️",g:"#7b2d5e,#c05c9b",r:0,n:0,p:0,l:["اسمع أولًا","رتّب فكرتك","اطلب بوضوح ولباقة","تعامل مع الاعتراض"],x:["الإقناع يبدأ بالإنصات. دع الطرف الآخر يشرح وجهة نظره حتى النهاية، ثم أعد صياغة ما فهمته بكلماتك للتأكد. ستكسب احترامه وتفهم ما يحتاجه فعلاً.","قبل أن تتحدث، حدّد ما الذي تريده بجملة واحدة، ثم اذكر سببين أو ثلاثة فقط. الفكرة المرتبة القصيرة أسهل في التذكر والتصديق من حديث طويل متشعب.","اذكر طلبك مباشرة مع السبب: «أحتاج كذا قبل يوم كذا لأن كذا». الطلب الواضح يوفّر الوقت ويقلل سوء الفهم، واللطف في الأسلوب لا يعني الغموض في المضمون.","عند الاعتراض لا تدافع فورًا. اعترف بما هو صحيح في كلامه، واسأل عن سبب اعتراضه، ثم اقترح حلًا يراعي مصلحة الطرفين."]},
+{id:12,t:"إدارة المال الشخصي للمبتدئين",i:"فريق أكاديمية دَرْب",c:"أعمال",e:"💰",g:"#0b5d3b,#52b788",r:0,n:0,p:0,l:["اعرف أين يذهب مالك","ميزانية بسيطة","ادخر قبل أن تنفق","فكّر في أهدافك الكبيرة"],x:["سجّل كل مصروفاتك لمدة شهر كامل، حتى الصغيرة منها. ستكتشف أبوابًا للصرف لم تنتبه لها، وهذه أول خطوة للتحكم في مالك.","قسّم دخلك إلى احتياجات أساسية ورغبات وادخار، وحدّد لكل جزء نسبة تناسب ظروفك. الميزانية الواقعية التي تلتزم بها أفضل من ميزانية مثالية تتركها بعد أسبوع.","اجعل الادخار أول ما تفعله عند وصول الدخل، ولو كان مبلغًا صغيرًا. ابنِ أولًا صندوق طوارئ يغطي مصروفات عدة أشهر قبل أي مشروع أو استثمار.","حدّد هدفًا واضحًا مثل سيارة أو منزل بمبلغ وتاريخ، ثم احسب كم تحتاج شهريًا. وتجنّب الاستثمار في شيء لا تفهمه أو في مبلغ لا تتحمل خسارته."]}
+];
+function cats(){return ["الكل","❤ المفضلة"].concat(COURSES.map(function(c){return c.c}).filter(function(v,i,a){return a.indexOf(v)===i}))}
+function esc(s){return String(s).replace(/[&<>"']/g,function(m){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]})}
+var CUSTOM=[];
+try{CUSTOM=JSON.parse(localStorage.getItem("darb_c")||"[]")||[]}catch(e){CUSTOM=[]}
+CUSTOM.forEach(function(c){COURSES.push(c)});
+COURSES.forEach(function(c){if(c.id<=8&&c.p)c.p=c.p>=45?10:5});
+var S={view:"home",cat:"الكل",q:"",cur:null,les:0,mineOnly:false,prog:{}};
+try{var sv=localStorage.getItem("darb");if(sv)S.prog=JSON.parse(sv)||{}}catch(e){}
+var SAVE=null,DB=null,PRODUCTS=[];
+function save(){try{localStorage.setItem("darb",JSON.stringify(S.prog))}catch(e){}if(typeof SAVE==="function")SAVE()}
+S.fav={};
+try{S.fav=JSON.parse(localStorage.getItem("darb_f")||"{}")||{}}catch(e){}
+function saveFav(){try{localStorage.setItem("darb_f",JSON.stringify(S.fav))}catch(e){}}
+function $(s){return document.querySelector(s)}
+function pct(c){var p=S.prog[c.id];return p?Math.round(p.done.length/c.l.length*100):0}
+function card(c){
+  var el=document.createElement("button");el.className="card";
+  var pg=S.prog[c.id]?'<div class="bar"><i style="width:'+pct(c)+'%"></i></div><div class="meta">'+pct(c)+'٪ مكتمل</div>':'';
+  el.innerHTML='<div class="thumb'+(c.img?' ph':'')+'" style="background:'+(c.img?'url(/_blob/'+c.img+') center/cover':'linear-gradient(135deg,'+c.g+')')+'">'+(c.img?'':'<span class="ic">'+c.e+'</span>')+(c.n>2000?'<span class="badge">الأكثر طلبًا</span>':'')+'</div><div class="cb"><h3>'+(S.fav[c.id]?'❤ ':'')+c.t+'</h3><div class="meta">'+c.i+' – '+c.l.length.toLocaleString("ar")+' دروس</div>'+(c.n?'<div><span class="rate">★ '+c.r.toLocaleString("ar")+'</span> <span class="meta">('+c.n.toLocaleString("ar")+')</span></div>':'<div><span class="badge" style="position:static;display:inline-block">جديد</span></div>')+''+(S.prog[c.id]?pg:'<div class="price">'+(c.p?'$'+c.p:'مجاني')+'</div>')+'</div>';
+  el.onclick=function(){S.cur=c;S.view="course";S.les=0;render();window.scrollTo(0,0)};
+  return el;
+}
+function go(i){var e=document.getElementById(i?"lib":"courses");if(e)e.scrollIntoView({behavior:"smooth"})}
+function home(){
+  var a=$("#app");
+  a.innerHTML=S.mineOnly?'<div class="hero"><h2>دوراتي</h2><p>أكمل من حيث توقفت.</p></div>':'<div class="hero"><h2>تعلّم مهارة جديدة اليوم</h2><p>دورات بالعربية في البرمجة والأعمال والتصميم وغيرها.</p></div>';
+  if(!S.mineOnly){
+    a.innerHTML='<div class="banner"><span class="kick">منصة تعلّم عربية</span><h2>طوّر مهاراتك وابنِ مستقبلك</h2><p>دورات عربية يقدّمها مدرّبون متخصصون، وتتعلّم بالسرعة التي تناسبك.</p><div class="cta"><button class="btn" style="margin:0" onclick="go(0)">ابدأ التعلّم مجانًا</button><button class="btn alt" style="margin:0;color:#fff;border-color:rgba(255,255,255,.55)" onclick="go(1)">المكتبة الرقمية</button></div><div class="stats"><div><b>'+COURSES.length.toLocaleString("ar")+'</b><span>دورة</span></div><div><b>'+COURSES.reduce(function(s,c){return s+c.n},0).toLocaleString("ar")+'</b><span>طالب</span></div><div><b>'+(cats().length-2).toLocaleString("ar")+'</b><span>تخصصات</span></div></div></div>';
+    var ch=document.createElement("div");ch.className="chips";
+    cats().forEach(function(k){var b=document.createElement("button");b.className="chip";b.textContent=k;b.setAttribute("aria-pressed",k===S.cat);b.onclick=function(){S.cat=k;render()};ch.appendChild(b)});
+    a.appendChild(ch);
+  }
+  var list=COURSES.filter(function(c){
+    if(S.mineOnly&&!S.prog[c.id])return false;
+    if(S.cat==="❤ المفضلة"){if(!S.fav[c.id])return false}else if(S.cat!=="الكل"&&c.c!==S.cat)return false;
+    var q=S.q.trim();return !q||(c.t+c.i+c.c).indexOf(q)>-1;
+  });
+  if(!list.length){a.insertAdjacentHTML("beforeend",'<div class="empty">'+(S.mineOnly?'لم تسجّل في أي دورة بعد. تصفّح الدورات وابدأ الآن.':'لا توجد نتائج. جرّب كلمة بحث أخرى.')+'</div>');return}
+  var g=document.createElement("div");g.className="grid";g.id="courses";list.forEach(function(c){g.appendChild(card(c))});a.appendChild(g);
+  if(!S.mineOnly&&S.cat==="الكل"&&!S.q.trim()){
+    var pw=document.createElement("div");pw.className="sec";pw.id="lib";
+    pw.innerHTML='<h2>المكتبة الرقمية</h2><p>كتب إلكترونية ومستندات جاهزة للتحميل.</p>';a.appendChild(pw);
+    if(!PRODUCTS.length)pw.insertAdjacentHTML("beforeend",'<div class="empty">ستُضاف المنتجات الرقمية قريبًا.</div>');
+    var pg2=document.createElement("div");pg2.className="grid";
+    PRODUCTS.forEach(function(p){
+      var k=document.createElement("div");k.className="card pcard";
+      var im=p.img?'url(/_blob/'+p.img+') center/cover':'linear-gradient(135deg,#173a52,#3f88c5)';
+      k.innerHTML='<div class="thumb'+(p.img?' ph':'')+'" style="background:'+im+'">'+(p.img?'':'<span class="ic">📕</span>')+'<span class="badge">'+p.k+'</span></div><div class="cb"><h3>'+p.t+'</h3><div class="meta">'+p.d+'</div><div class="price">'+(p.p?'$'+p.p:'مجاني')+'</div></div>';
+      var l=document.createElement("a");l.className="btn pdf";l.target="_blank";l.rel="noopener";
+      if(p.p&&p.u){l.href=p.u;l.textContent="اشترِ الآن"}else if(p.f){l.href="/_blob/"+p.f;l.textContent="فتح وتحميل الملف"}else return;
+      k.lastChild.appendChild(l);pg2.appendChild(k);
+    });
+    a.appendChild(pg2);
+    var FREE=[{n:"رواق",d:"مساقات أكاديمية مجانية بالعربية في الحاسب والتسويق وعلوم الشريعة وغيرها.",u:"https://www.rwaq.org"},{n:"إدراك",d:"مساقات جامعية مفتوحة بالعربية أطلقتها مؤسسة الملكة رانيا للتعليم والتنمية.",u:"https://www.edraak.org"},{n:"دروب",d:"المنصة الوطنية السعودية للتعليم الإلكتروني: دورات ومسارات مجانية بشهادات إتمام.",u:"https://doroob.sa"},{n:"مهارة",d:"منصة تدريب عربية فيها دورات متنوّعة مع شهادات رقمية.",u:"https://www.maharah.net"},{n:"أكاديمية حسوب",d:"دروس ودورات عربية في البرمجة والتصميم والعمل الحر.",u:"https://academy.hsoub.com"}];
+    var h=document.createElement("div");h.className="hero";h.innerHTML='<h2 style="font-size:1.4rem">مصادر تعلّم مجانية بالعربية</h2><p>ابدأ اليوم بدون دفع. تأكد من تفاصيل كل دورة في موقع المنصة.</p>';a.appendChild(h);
+    var fg=document.createElement("div");fg.className="grid";
+    FREE.forEach(function(f){var l=document.createElement("a");l.className="card";l.href=f.u;l.target="_blank";l.rel="noopener";l.style.textDecoration="none";l.innerHTML='<div class="cb"><h3 style="min-height:0">'+f.n+' <span class="badge" style="position:static;display:inline-block">مجاني</span></h3><div class="meta">'+f.d+'</div><div class="price" style="color:var(--brand)">زيارة المنصة ›</div></div>';fg.appendChild(l)});
+    a.appendChild(fg);
+  }
+}
+function course(){
+  var c=S.cur,p=S.prog[c.id],a=$("#app");
+  a.innerHTML='<button class="back" id="bk">‹ رجوع إلى الدورات</button><div class="detail"><div><div class="player" style="background:'+(c.img?'linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),url(/_blob/'+c.img+') center/cover':'linear-gradient(135deg,'+c.g+')')+'"><div><div style="font-size:3rem">'+c.e+'</div><h3>'+(p?'الدرس '+(S.les+1).toLocaleString("ar")+': '+c.l[S.les]:c.t)+'</h3><div>'+(p?'':'سجّل في الدورة لبدء الدروس')+'</div>'+(p&&c.v&&c.v[S.les]?'<p><a style="color:#fff;font-weight:800" target="_blank" rel="noopener" href="'+c.v[S.les]+'">▶ شاهد فيديو الدرس</a></p>':'')+'</div></div>'+(p&&c.x&&c.x[S.les]?'<div class="panel" style="margin-top:14px;line-height:2"><strong>'+c.l[S.les]+'</strong><p>'+c.x[S.les]+'</p></div>':'')+'<h2 style="margin:14px 0 2px">'+c.t+'</h2><div class="meta">المدرّب: '+c.i+' · '+c.c+'</div><div id="act"></div></div><div class="panel"><strong>محتوى الدورة</strong>'+(p?'<div class="bar"><i style="width:'+pct(c)+'%"></i></div><div class="meta">'+pct(c)+'٪ مكتمل</div>':'')+'<div id="ls"></div></div></div>';
+  $("#bk").onclick=function(){S.view="home";render()};
+  var act=$("#act");
+  var fb=document.createElement("button");fb.className="btn alt";fb.style.marginRight="0";fb.textContent=S.fav[c.id]?"❤ في المفضلة":"♡ أضف للمفضلة";fb.onclick=function(){if(S.fav[c.id])delete S.fav[c.id];else S.fav[c.id]=1;saveFav();render()};act.appendChild(fb);
+  if(!p){var b=document.createElement("button");b.className="btn";b.textContent=c.p?'سجّل الآن بـ $'+c.p:'سجّل مجانًا';var en=function(){S.prog[c.id]={done:[]};save();render()};
+    if(c.p&&c.u){var a2=document.createElement("a");a2.className="btn";a2.href=c.u;a2.target="_blank";a2.rel="noopener";a2.style.display="inline-block";a2.style.textDecoration="none";a2.textContent="ادفع $"+c.p;act.appendChild(a2);b.textContent="دفعتُ، ابدأ التعلّم";b.className="btn alt"}
+    b.onclick=en;act.appendChild(b)}
+  else{
+    var d=p.done.indexOf(S.les)>-1,b2=document.createElement("button");b2.className="btn";b2.textContent=d?'إلغاء إكمال الدرس':'أكملت الدرس';
+    b2.onclick=function(){if(d)p.done.splice(p.done.indexOf(S.les),1);else{p.done.push(S.les);if(S.les<c.l.length-1)S.les++}save();render()};act.appendChild(b2);
+    if(pct(c)===100){act.insertAdjacentHTML("beforeend",'<p class="rate">🏆 أتممت الدورة. مبروك!</p>');var cb=document.createElement("button");cb.className="btn";cb.style.marginRight="0";cb.textContent="احصل على شهادة الإتمام";cb.onclick=function(){S.view="cert";render();window.scrollTo(0,0)};act.appendChild(cb)}
+  }
+  var ls=$("#ls");
+  c.l.forEach(function(t,i){
+    var b=document.createElement("button");var dn=p&&p.done.indexOf(i)>-1;
+    b.className="lesson"+(dn?" done":"");b.setAttribute("aria-current",p&&i===S.les);
+    b.innerHTML='<span class="tick">'+(dn?"✓":"")+'</span><span>'+t+'</span>';
+    b.onclick=function(){if(p){S.les=i;render()}};ls.appendChild(b);
+  });
+}
+function addForm(){
+  var a=$("#app");
+  a.innerHTML='<button class="back" id="bk">‹ رجوع</button><div class="panel"><h2 style="margin-top:0">أضف دورتك</h2><style>.f{display:block;margin:10px 0 4px;font-weight:600}.in{width:100%;padding:10px;border:1px solid var(--line);border-radius:10px;font:inherit;background:var(--bg);color:var(--ink)}</style><label class="f" for="ft">عنوان الدورة</label><input class="in" id="ft"><label class="f" for="fi">اسم المدرّب</label><input class="in" id="fi"><label class="f" for="fc">التصنيف</label><input class="in" id="fc" placeholder="مثال: برمجة"><label class="f" for="fp">السعر بالدولار (٠ للمجاني)</label><input class="in" id="fp" type="number" min="0" value="0"><label class="f" for="fl">الدروس: سطر لكل درس، ويمكنك إضافة رابط الفيديو بعد علامة | </label><textarea class="in" id="fl" rows="6" placeholder="المقدمة | https://youtube.com/...\nالدرس الثاني"></textarea><label class="f" for="fimg">صورة غلاف الدورة (اختياري، صورة تملك حقوقها)</label><input class="in" id="fimg" type="file" accept="image/png,image/jpeg,image/webp"><label class="f" for="fu">رابط الدفع (من مزوّد الدفع، يبدأ بـ https)</label><input class="in" id="fu" placeholder="https://..."><div id="er" class="meta" style="color:#c0392b"></div><button class="btn" id="sv" style="margin-right:0">انشر الدورة</button></div>';
+  $("#bk").onclick=function(){S.view="home";render()};
+  $("#sv").onclick=function(){
+    var t=$("#ft").value.trim(),i=$("#fi").value.trim(),k=$("#fc").value.trim()||"أخرى",rows=$("#fl").value.split("\n").map(function(x){return x.trim()}).filter(Boolean);
+    if(!t||!i||!rows.length){$("#er").textContent="أدخل عنوان الدورة واسم المدرّب ودرسًا واحدًا على الأقل.";return}
+    var l=[],v=[];
+    rows.forEach(function(r){var pr=r.split("|"),u=(pr[1]||"").trim();l.push(esc(pr[0].trim()));v.push(/^https?:\/\//i.test(u)?esc(u):"")});
+    var pu=$("#fu").value.trim();pu=/^https:\/\//i.test(pu)?pu:"";
+    var cols=["#2b7a78,#3aafa9","#1c4e80,#3f88c5","#7b2d5e,#c05c9b","#9a5b13,#e3a008"];
+    var c={id:Date.now(),t:esc(t),i:esc(i),c:esc(k),e:"📚",g:cols[CUSTOM.length%4],r:5.0,n:0,p:Math.max(0,+$("#fp").value||0),l:l,v:v,u:pu};
+    if(!DB){$("#er").textContent="النشر المشترك غير متاح الآن.";return}
+    c.id=String(c.id);
+    var fl=$("#fimg").files[0];
+    (async function(){
+      try{if(fl){var ast=await claude.use("assets");if(!ast){$("#er").textContent="رفع الصور غير متاح الآن.";return}var up=await ast.upload(fl);c.img=up.id}}catch(e){$("#er").textContent="تعذّر رفع الصورة.";return}
+      DB.collection("courses").doc(c.id).set(c).then(function(){S.view="home";S.cat="الكل";render();window.scrollTo(0,0)},function(){$("#er").textContent="تعذّر حفظ الدورة. تحقق من صلاحياتك."});
+    })();
+  };
+}
+function cert(){
+  var c=S.cur,a=$("#app");
+  a.innerHTML='<button class="back" id="bk">‹ رجوع إلى الدورة</button><div class="panel"><label for="nm" style="display:block;font-weight:600;margin-bottom:4px">اسمك على الشهادة</label><input id="nm" style="width:100%;padding:10px;border:1px solid var(--line);border-radius:10px;font:inherit;background:var(--bg);color:var(--ink)"><button class="btn" id="go" style="margin-right:0">إصدار الشهادة</button></div><div id="ct"></div>';
+  $("#bk").onclick=function(){S.view="course";render()};
+  $("#go").onclick=function(){
+    var n=$("#nm").value.trim();if(!n)return;
+    $("#ct").innerHTML='<div style="margin-top:16px;border:6px double var(--gold);border-radius:12px;padding:30px 16px;text-align:center;background:var(--surface)"><div style="font-size:3rem">🏆</div><h2>شهادة إتمام دورة</h2><p>تشهد أكاديمية دَرْب بأن</p><h1 style="color:var(--brand);margin:0">'+esc(n)+'</h1><p>أتمّ بنجاح دورة</p><h3>'+c.t+'</h3><p class="meta">المدرّب: '+c.i+' · '+new Date().toLocaleDateString("ar")+'</p></div><p class="meta">يمكنك تصوير الشهادة وحفظها.</p>';
+  };
+}
+function addProd(){
+  var a=$("#app");
+  a.innerHTML='<button class="back" id="bk">‹ رجوع</button><div class="panel"><h2 style="margin-top:0">أضف منتجًا رقميًا</h2><style>.f{display:block;margin:10px 0 4px;font-weight:600}.in{width:100%;padding:10px;border:1px solid var(--line);border-radius:10px;font:inherit;background:var(--bg);color:var(--ink)}</style><label class="f" for="pt">اسم المنتج</label><input class="in" id="pt"><label class="f" for="pd">وصف قصير</label><textarea class="in" id="pd" rows="3"></textarea><label class="f" for="pk">النوع</label><select class="in" id="pk"><option>كتاب إلكتروني</option><option>مستند</option><option>قالب</option></select><label class="f" for="pp">السعر بالدولار (٠ للمجاني)</label><input class="in" id="pp" type="number" min="0" value="0"><label class="f" for="pf">ملف PDF (للمنتج المجاني فقط)</label><input class="in" id="pf" type="file" accept="application/pdf"><label class="f" for="pu">رابط الشراء (للمنتج المدفوع، يبدأ بـ https)</label><input class="in" id="pu" placeholder="https://..."><label class="f" for="pi">صورة الغلاف (اختياري)</label><input class="in" id="pi" type="file" accept="image/png,image/jpeg,image/webp"><div id="er" class="meta" style="color:#c0392b"></div><button class="btn" id="ps" style="margin-right:0">انشر المنتج</button></div>';
+  $("#bk").onclick=function(){S.view="home";render()};
+  $("#ps").onclick=function(){
+    var t=$("#pt").value.trim(),d=$("#pd").value.trim(),pr=Math.max(0,+$("#pp").value||0),u=$("#pu").value.trim(),f=$("#pf").files[0],im=$("#pi").files[0],er=$("#er");
+    if(!t){er.textContent="أدخل اسم المنتج.";return}
+    if(pr>0&&!/^https:\/\//i.test(u)){er.textContent="المنتج المدفوع يحتاج رابط شراء يبدأ بـ https.";return}
+    if(pr===0&&!f){er.textContent="المنتج المجاني يحتاج ملف PDF.";return}
+    if(!DB){er.textContent="النشر المشترك غير متاح الآن.";return}
+    (async function(){try{
+      var ast=await claude.use("assets"),o={id:String(Date.now()),t:esc(t),d:esc(d),k:esc($("#pk").value),p:pr};
+      if(pr>0)o.u=u;else o.f=(await ast.upload(f)).id;
+      if(im)o.img=(await ast.upload(im)).id;
+      await DB.collection("products").doc(o.id).set(o);
+      S.view="home";render();window.scrollTo(0,0);
+    }catch(e){er.textContent="تعذّر النشر. تحقق من الصلاحيات وحجم الملف."}})();
+  };
+}
+function render(){S.view==="course"?course():S.view==="add"?addForm():S.view==="addp"?addProd():S.view==="cert"?cert():home()}
+$("#addp").onclick=function(){S.view="addp";render();window.scrollTo(0,0)};
+$("#add").onclick=function(){S.view="add";render();window.scrollTo(0,0)};
+$("#q").oninput=function(e){S.q=e.target.value;S.view="home";render()};
+$("#mine").onclick=function(){S.mineOnly=!S.mineOnly;this.textContent=S.mineOnly?"كل الدورات":"تعلّمي";S.view="home";render()};
+$("#home").onclick=function(){S.mineOnly=false;S.cat="الكل";S.q="";$("#q").value="";$("#mine").textContent="تعلّمي";S.view="home";render()};
+render();
+(async function(){try{
+  var u=await claude.use("user");DB=await claude.use("db");if(!DB)return;
+  if(u&&u.canEdit()){$("#add").hidden=false;$("#addp").hidden=false}
+  DB.collection("products").onSnapshot(function(s){PRODUCTS=s.docs.map(function(d){return d.data()});if(S.view==="home")render()},function(){});
+  var base=COURSES.filter(function(c){return c.id<1000});
+  DB.collection("courses").onSnapshot(function(s){
+    COURSES=base.concat(s.docs.map(function(d){return d.data()}));
+    if(S.view==="home")render();
+  },function(){});
+  if(u&&u.can("data.write")){
+    var id=await u.id();var pd=DB.collection("data/users/"+id).doc("progress");
+    var ps=await pd.get();
+    if(ps.exists){var rp=ps.data().prog||{};for(var k in rp)if(!S.prog[k])S.prog[k]=rp[k];if(S.view==="home")render()}
+    SAVE=function(){clearTimeout(SAVE.t);SAVE.t=setTimeout(function(){pd.set({prog:S.prog}).catch(function(){})},700)};
+  }
+}catch(e){}})();
+</script>
+</body>
+</html>
